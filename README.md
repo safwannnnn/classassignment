@@ -1,43 +1,38 @@
 # classassignment
 
-**HTML File (student_details.html):**
-This file contains the actual form markup written in HTML.
-It includes input fields for capturing student details like name, matriculation number, addresses, email, and phone numbers.
-It also includes references to the CSS file for styling and the JavaScript file for client-side validation.
-**CSS File (style.css):**
-This file contains styles for formatting the appearance of HTML elements within the form.
-It defines the layout, colors, fonts, and other visual properties of the form elements.
-**JavaScript File (validation.js):**
-This file contains JavaScript code responsible for client-side input validation.
-It listens for the form submission event and validates the input fields using regular expressions.
-If any input fails validation, it displays an error message alerting the user.
-**PHP File (submit_form.php):**
-This file contains server-side validation logic written in PHP.
-It receives form data submitted from the HTML form upon submission.
-It validates the input data using regular expressions or other methods.
-If any validation fails, it outputs an error message.
-If all validation passes, it can process the form data further, such as inserting it into a database or sending an email.
+## Project Components
 
-**Project Structure:**
-htdocs folder: Contains the main HTML file (student_details.html).
-js folder: Contains the JavaScript file (validation.js) for client-side validation.
-css folder: Contains the CSS file (style.css) for styling the HTML form.
-submit_form.php: Handles server-side validation and processing of form data.
-Relationship between Files:
+- `login.html`: A login page for user authentication.
+- `student-details.php`: A form for entering student details.
+- `submit-details.php`: Server-side script for processing and storing form data.
+- `styles.css`: CSS styles for the web pages.
+- `validation.js`: JavaScript file for client-side validation.
 
-**HTML file (student_details.html):**
+## Features
 
-References the CSS file for styling using <link> tag.
-References the JavaScript file for client-side validation using <script> tag.
-JavaScript file (validation.js):
+- **Client-Side Validation**: Ensures input format correctness before submission using HTML5 and JavaScript.
+- **Server-Side Validation**: Further validates data on the server using PHP to protect against malicious data.
+- **Secure Authentication**: Users must login to access the form, with passwords securely hashed in the database.
+- **Session Management**: Uses PHP sessions to maintain user state across multiple pages.
 
-Listens for the form submission event in the HTML file.
-Validates input fields using regular expressions and displays error messages.
+### Sequence
 
-**PHP file (submit_form.php):**
+1. **User Authentication**:
+   - Users are greeted by `login.html` where they must enter their credentials.
+   - Upon successful login, a session is initiated, and the user is redirected to `student-details.php`.
 
-Receives form data submitted from the HTML form.
-Performs server-side validation using PHP's regex functions or other methods.
-Outputs error messages if validation fails or processes the form data further if validation passes.
+2. **Data Entry**:
+   - On `student-details.php`, users fill in the student details form.
+   - Client-side JavaScript validations check the form data as the user types.
+   - Upon submission, data is sent to `submit-details.php`.
 
-Overall, these files work together to create a functional and validated student details form, ensuring data integrity both on the client-side and server-side.
+3. **Data Processing**:
+   - `submit-details.php` performs server-side validation.
+   - If validation passes, data is sanitized and stored in the database.
+   - Users are then redirected or informed of the successful operation.
+
+### Validation
+
+- **Email**: Must be a valid Gmail address (checked via regex in both JavaScript and PHP).
+- **Matric Number**: Numeric only, 5-10 digits.
+- **Phone Numbers**: Must be 10 digits (optional for home phone).
