@@ -1,12 +1,12 @@
 <?php
 // Server-side validation
-$name = $_POST['name'];
-$matricNo = $_POST['matricNo'];
-$currentAddress = $_POST['currentAddress'];
-$homeAddress = $_POST['homeAddress'];
-$email = $_POST['email'];
-$mobileNo = $_POST['mobileNo'];
-$homePhoneNo = $_POST['homePhoneNo'];
+$name = htmlspecialchars($_POST['name']);
+$matricNo = htmlspecialchars($_POST['matricNo']);
+$currentAddress = htmlspecialchars($_POST['currentAddress']);
+$homeAddress = htmlspecialchars($_POST['homeAddress']);
+$email = htmlspecialchars($_POST['email']);
+$mobileNo = htmlspecialchars($_POST['mobileNo']);
+$homePhoneNo = htmlspecialchars($_POST['homePhoneNo']);
 
 // server-side validation with regex
 if (!preg_match("/^[A-Za-z\s]+$/", $name)) {
